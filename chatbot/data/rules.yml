@@ -7,6 +7,23 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: Activate form
+  steps:
+  - intent: request_adresses
+  - action: adresses_form
+  - active_loop: adresses_form
+
+
+- rule: Submit form
+  condition:
+  - active_loop: adresses_form
+  steps:
+  - action: adresses_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge

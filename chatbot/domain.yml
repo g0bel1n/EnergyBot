@@ -3,31 +3,51 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
+  - request_adresses
   - bot_challenge
+
+forms:
+  adresses_form:
+    required_slots:
+      - zip_code
+      - email
+
+slots:
+  zip_code:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+       - active_loop: adresses_form
+         requested_slot: zip_code
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+       - active_loop: adresses_form
+         requested_slot: email
 
 responses:
   utter_greet:
   - text: "Hey! How are you?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_ask_zip_code:
+  - text: "What is your zip code?"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_ask_email:
+  - text: "So you live in {zip_code}, can you give me your email?"
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_submit:
+  - text: "Thanks"
 
   utter_goodbye:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a ErgoBot, powered by Rasa and DKMS."
 
 session_config:
   session_expiration_time: 60
