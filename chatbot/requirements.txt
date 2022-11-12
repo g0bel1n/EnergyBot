@@ -17,7 +17,7 @@ dependencies:
   - ncurses=6.3=h27087fc_1
   - openssl=3.0.7=h166bdaf_0
   - pip=22.3.1=pyhd8ed1ab_0
-  - python=3.8.13=ha86cf86_0_cpython
+  - python=3.9.13=h2660328_0_cpython
   - readline=8.1.2=h0f457ee_0
   - setuptools=65.5.1=pyhd8ed1ab_0
   - sqlite=3.39.4=h4ff8645_0
@@ -32,16 +32,15 @@ dependencies:
     - aiohttp==3.8.3
     - aiormq==6.4.2
     - aiosignal==1.3.1
-    - apscheduler==3.9.1
+    - apscheduler==3.9.1.post1
     - astunparse==1.6.3
     - async-timeout==4.0.2
     - attrs==22.1.0
     - babel==2.9.1
-    - backports-zoneinfo==0.2.1
     - bidict==0.22.0
     - blis==0.7.9
-    - boto3==1.26.7
-    - botocore==1.29.7
+    - boto3==1.26.8
+    - botocore==1.29.8
     - cachecontrol==0.12.11
     - cachetools==5.2.0
     - catalogue==2.0.8
@@ -79,7 +78,6 @@ dependencies:
     - humanfriendly==10.0
     - idna==3.4
     - importlib-metadata==5.0.0
-    - importlib-resources==5.10.0
     - jinja2==3.1.2
     - jmespath==1.0.1
     - joblib==1.2.0
@@ -108,7 +106,6 @@ dependencies:
     - partd==1.3.0
     - pathy==0.6.2
     - pillow==9.3.0
-    - pkgutil-resolve-name==1.3.10
     - pluggy==1.0.0
     - preshed==3.0.8
     - prompt-toolkit==3.0.28

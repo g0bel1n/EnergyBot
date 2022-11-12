@@ -7,14 +7,14 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Activate form
+- rule: Activate adresses form
   steps:
   - intent: request_adresses
   - action: adresses_form
   - active_loop: adresses_form
 
 
-- rule: Submit form
+- rule: Submit adreses form
   condition:
   - active_loop: adresses_form
   steps:
