@@ -10,9 +10,10 @@
 # Server which runs your custom actions.
 # https://rasa.com/docs/rasa/custom-actions
 
-#action_endpoint:
-#  url: "http://localhost:5055/webhook"
+action_endpoint:
+  url: "https://user-ikonkobo-763039-0.user.lab.sspcloud.fr/proxy/5005/webhook"
 
+# https://user-ikonkobo-763039-0.user.lab.sspcloud.fr/proxy/5005/
 # Tracker store which is used to store the conversations.
 # By default the conversations are stored in memory.
 # https://rasa.com/docs/rasa/tracker-stores
@@ -20,7 +21,7 @@
 tracker_store:
     type: SQL
     dialect: "postgresql"  # the dialect used to interact with the db
-    url: "postgresql://postgresql-627240:5432"  # (optional) host of the sql db, e.g. "localhost"
+    url: "postgresql-739668"  # (optional) host of the sql db, e.g. "localhost"
     db: "defaultdb"  # path to your db
     username: "postgres" # username used for authentication
     password: "k3tstx73pdjfa7813dai" # password used for authentication

@@ -1,8 +1,9 @@
 from actions.database_connector import DataUpdate
-from typing import Any, Text, Dict, List, Union
-from rasa_sdk import Tracker 
+from typing import Any, Text, Dict, List
+from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
+from rasa_sdk.events import EventType
 
 
 class PersonalInfosFormValidation(FormValidationAction):
@@ -19,8 +20,9 @@ class PersonalInfosFormValidation(FormValidationAction):
 
         dispatcher.utter_message(template="utter_submit")
 
-        DataUpdate(tracker.get_slot("firstname"), tracker.get_slot("lastname"), tracker.get_slot("email"), tracker.get_slot("zipcode"))
-        dispatcher.utter_message("Your response has been loaded.")    
+        DataUpdate(
+            tracker.get_slot("firstname"), tracker.get_slot("lastname"),
+            tracker.get_slot("email"), tracker.get_slot("zipcode"))
         return []
 
 # This files contains your custom actions which can be used to run

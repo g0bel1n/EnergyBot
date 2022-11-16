@@ -7,7 +7,7 @@ def DataUpdate(last_name_, first_name_, email_, zip_code_):
     '''
     db = psycopg2.connect(
         database="defaultdb",
-        host="postgresql-627240",
+        host="postgresql-739668",
         user="postgres",
         password="k3tstx73pdjfa7813dai",
         port="5432")
