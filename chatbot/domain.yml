@@ -3,42 +3,70 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - request_adresses
+  - request_personal_data
+  - zipcode_entry
   - bot_challenge
 
-forms:
-  adresses_form:
-    required_slots:
-      - zip_code
-      - email
+actions:
+- validate_personal_data_form # From actions.py page
 
 slots:
-  zip_code:
+  lastname:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
     - type: from_text
       conditions:
-       - active_loop: adresses_form
-         requested_slot: zip_code
+       - active_loop: personal_data_form
+         requested_slot: lastname
+  firstname:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+       - active_loop: personal_data_form
+         requested_slot: firstname
   email:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
     - type: from_text
       conditions:
-       - active_loop: adresses_form
+       - active_loop: personal_data_form
          requested_slot: email
+  zipcode:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+       - active_loop: personal_data_form
+         requested_slot: zipcode
+
+forms:
+  personal_data_form:
+    required_slots:
+      - lastname
+      - firstname
+      - email
+      - zipcode
 
 responses:
   utter_greet:
   - text: "Hey! How are you?"
 
-  utter_ask_zip_code:
-  - text: "What is your zip code?"
+  utter_ask_firstname:
+  - text: "Give me your first name"
+
+  utter_ask_lastname:
+  - text: "What is your last name?"
 
   utter_ask_email:
-  - text: "So you live in {zip_code}, can you give me your email?"
+  - text: "So {first_name} {last_name}, can you provide your email?"
+
+  utter_ask_zipcode:
+  - text: "What is your zip code?"
 
   utter_submit:
   - text: "Thanks"

@@ -110,6 +110,7 @@ dependencies:
     - preshed==3.0.8
     - prompt-toolkit==3.0.28
     - protobuf==3.19.6
+    - psycopg2==2.9.5
     - psycopg2-binary==2.9.5
     - pyasn1==0.4.8
     - pyasn1-modules==0.2.8
@@ -178,6 +179,7 @@ dependencies:
     - twilio==7.14.2
     - typeguard==2.13.3
     - typer==0.7.0
+    - typing==3.7.4.3
     - typing-extensions==4.4.0
     - typing-utils==0.1.0
     - tzdata==2022.6

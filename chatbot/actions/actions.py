@@ -1,3 +1,28 @@
+from actions.database_connector import DataUpdate
+from typing import Any, Text, Dict, List, Union
+from rasa_sdk import Tracker 
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.forms import FormValidationAction
+
+
+class PersonalInfosFormValidation(FormValidationAction):
+    """Example of a form validation action."""
+    def name(self) -> Text:
+        return "validate_personal_data_form"
+
+    def submit(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+     ) -> List[Dict]:
+
+        dispatcher.utter_message(template="utter_submit")
+
+        DataUpdate(tracker.get_slot("firstname"), tracker.get_slot("lastname"), tracker.get_slot("email"), tracker.get_slot("zipcode"))
+        dispatcher.utter_message("Your response has been loaded.")    
+        return []
+
 # This files contains your custom actions which can be used to run
 # custom Python code.
 #

@@ -7,18 +7,18 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Activate adresses form
+- rule: Activate personal data form
   steps:
-  - intent: request_adresses
-  - action: adresses_form
-  - active_loop: adresses_form
+  - intent: request_personal_data
+  - action: personal_data_form
+  - active_loop: personal_data_form
 
 
-- rule: Submit adreses form
+- rule: Submit personal data form
   condition:
-  - active_loop: adresses_form
+  - active_loop: personal_data_form
   steps:
-  - action: adresses_form
+  - action: personal_data_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
