@@ -39,7 +39,8 @@ slots:
     type: text
     influence_conversation: false
     mappings:
-    - type: from_text
+    - type: from_entity
+      entity: zipcode_entry
       conditions:
        - active_loop: personal_data_form
          requested_slot: zipcode
@@ -63,10 +64,22 @@ responses:
   - text: "What is your last name?"
 
   utter_ask_email:
-  - text: "So {first_name} {last_name}, can you provide your email?"
+  - text: "So {firstname} {lastname}, can you provide your email?"
 
   utter_ask_zipcode:
   - text: "What is your zip code?"
+
+  utter_wrong_lastname:
+  - text: "Sorry we are unable to proceed with your last name, please try again"
+
+  utter_wrong_firstname:
+  - text: "Sorry we are unable to proceed with your first name, please try again"
+
+  utter_wrong_email:
+  - text: "Sorry we are unable to proceed with your email, please try again"
+
+  utter_wrong_zipcode:
+  - text: "Sorry we are unable to proceed with your zipcode, please try again"
 
   utter_submit:
   - text: "Thanks"

@@ -30,8 +30,10 @@ nlu:
 
 - intent: zipcode_entry
   examples: |
-    - it is [91120](zip_code)
-    - my zipcode is [91120](zip_code)
+    - it is [91120](zipcode)
+    - my zipcode is [91120](zipcode)
+    - it is [75001](zipcode)
+    - my zipcode is [75001](zipcode)
 
 - intent: bot_challenge
   examples: |

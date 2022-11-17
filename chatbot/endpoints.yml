@@ -11,7 +11,8 @@
 # https://rasa.com/docs/rasa/custom-actions
 
 action_endpoint:
-  url: "https://user-ikonkobo-763039-0.user.lab.sspcloud.fr/proxy/5005/webhook"
+  url:  "http://localhost:5055/webhook"
+# "https://user-ikonkobo-295791-0.user.lab.sspcloud.fr/proxy/5005/webhook"
 
 # https://user-ikonkobo-763039-0.user.lab.sspcloud.fr/proxy/5005/
 # Tracker store which is used to store the conversations.
