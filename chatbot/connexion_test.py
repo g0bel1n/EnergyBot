@@ -1,13 +1,19 @@
 import psycopg2
 # from sqlalchemy import create_engine
 import pandas as pd
+import yaml
+from yaml.loader import SafeLoader
+
+# Open the file and load the file
+with open('config_db.yaml') as f:
+    credentials = yaml.load(f, Loader=SafeLoader)
 
 
-conn = psycopg2.connect(database="defaultdb",
-                        host="postgresql-739668",
-                        user="postgres",
-                        password="k3tstx73pdjfa7813dai",
-                        port="5432")
+conn = psycopg2.connect(database=credentials["database"],
+                        host=credentials["host"],
+                        user=credentials["user"],
+                        password=credentials["password"],
+                        port=credentials["port"])
 
 
 cursor = conn.cursor()
