@@ -1,6 +1,6 @@
 from actions.database_connector import DataUpdate
 from typing import Any, Text, Dict, List
-from rasa_sdk import Tracker
+from rasa_sdk import Tracker, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
 # from rasa_sdk.events import EventType
@@ -83,7 +83,13 @@ class PersonalInfosFormValidation(FormValidationAction):
             # user will be asked for the slot again
             return {"zipcode": None}
 
-    def submit(
+
+class ActionSubmitForm(Action):
+
+    def name(self) -> Text:
+        return "action_submit_form"
+
+    def run(
         self,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
@@ -91,7 +97,7 @@ class PersonalInfosFormValidation(FormValidationAction):
      ) -> List[Dict]:
 
         DataUpdate(
-            tracker.get_slot("firstname"), tracker.get_slot("lastname"),
+            tracker.get_slot("lastname"), tracker.get_slot("firstname"),
             tracker.get_slot("email"), tracker.get_slot("zipcode"))
 
         dispatcher.utter_message(template="utter_submit")

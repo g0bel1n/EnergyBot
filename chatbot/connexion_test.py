@@ -5,9 +5,8 @@ import yaml
 from yaml.loader import SafeLoader
 
 # Open the file and load the file
-with open('config_db.yaml') as f:
+with open('/home/onyxia/EnergyBot/chatbot/config_db.yml') as f:
     credentials = yaml.load(f, Loader=SafeLoader)
-
 
 conn = psycopg2.connect(database=credentials["database"],
                         host=credentials["host"],
@@ -18,6 +17,8 @@ conn = psycopg2.connect(database=credentials["database"],
 
 cursor = conn.cursor()
 '''
+cursor.execute("DROP TABLE IF EXISTS customer")
+
 cursor.execute("CREATE TABLE customer(\
     cust_id SERIAL PRIMARY KEY NOT NULL ,\
     last_name VARCHAR(100),\

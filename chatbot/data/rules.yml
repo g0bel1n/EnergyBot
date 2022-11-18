@@ -22,7 +22,7 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_submit
+  - action: action_submit_form
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:

@@ -4,11 +4,11 @@ intents:
   - greet
   - goodbye
   - request_personal_data
-  - zipcode_entry
   - bot_challenge
 
 actions:
 - validate_personal_data_form # From actions.py page
+- action_submit_form
 
 slots:
   lastname:
@@ -39,8 +39,7 @@ slots:
     type: text
     influence_conversation: false
     mappings:
-    - type: from_entity
-      entity: zipcode_entry
+    - type: from_text
       conditions:
        - active_loop: personal_data_form
          requested_slot: zipcode
