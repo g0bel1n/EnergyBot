@@ -1,32 +1,25 @@
 name: rasa-app
 channels:
-  - conda-forge
+  - defaults
 dependencies:
-  - _libgcc_mutex=0.1=conda_forge
-  - _openmp_mutex=4.5=2_gnu
-  - bzip2=1.0.8=h7f98852_4
-  - ca-certificates=2022.9.24=ha878542_0
-  - ld_impl_linux-64=2.39=hc81fddc_0
-  - libffi=3.4.2=h7f98852_5
-  - libgcc-ng=12.2.0=h65d4601_19
-  - libgomp=12.2.0=h65d4601_19
-  - libnsl=2.0.0=h7f98852_0
-  - libsqlite=3.39.4=h753d276_0
-  - libuuid=2.32.1=h7f98852_1000
-  - libzlib=1.2.13=h166bdaf_4
-  - ncurses=6.3=h27087fc_1
-  - openssl=3.0.7=h166bdaf_0
-  - pip=22.3.1=pyhd8ed1ab_0
-  - python=3.9.13=h2660328_0_cpython
-  - readline=8.1.2=h0f457ee_0
-  - setuptools=65.5.1=pyhd8ed1ab_0
-  - sqlite=3.39.4=h4ff8645_0
-  - tk=8.6.12=h27826a3_0
-  - wheel=0.38.4=pyhd8ed1ab_0
-  - xz=5.2.6=h166bdaf_0
+  - ca-certificates=2022.10.11=haa95532_0
+  - certifi=2022.9.24=py39haa95532_0
+  - krb5=1.19.2=h5b6d351_0
+  - libpq=12.9=hb652d5d_3
+  - openssl=1.1.1s=h2bbff1b_0
+  - pip=22.2.2=py39haa95532_0
+  - psycopg2=2.9.3=py39hcd4344a_0
+  - python=3.9.15=h6244533_0
+  - setuptools=65.5.0=py39haa95532_0
+  - sqlite=3.39.3=h2bbff1b_0
+  - vc=14.2=h21ff451_1
+  - vs2015_runtime=14.27.29016=h5e58377_2
+  - wheel=0.37.1=pyhd3eb1b0_0
+  - wincertstore=0.2=py39haa95532_2
+  - zlib=1.2.13=h8cc25b3_0
   - pip:
     - absl-py==1.2.0
-    - aio-pika==8.2.4
+    - aio-pika==8.2.5
     - aiofiles==22.1.0
     - aiogram==2.19
     - aiohttp==3.8.3
@@ -39,16 +32,16 @@ dependencies:
     - babel==2.9.1
     - bidict==0.22.0
     - blis==0.7.9
-    - boto3==1.26.8
-    - botocore==1.29.8
+    - boto3==1.26.12
+    - botocore==1.29.12
     - cachecontrol==0.12.11
     - cachetools==5.2.0
     - catalogue==2.0.8
-    - certifi==2022.9.24
     - cffi==1.15.1
     - charset-normalizer==2.1.1
     - click==8.1.3
     - cloudpickle==2.2.0
+    - colorama==0.4.6
     - colorclass==2.2.2
     - coloredlogs==15.0.1
     - colorhash==1.1.0
@@ -104,13 +97,12 @@ dependencies:
     - packaging==20.9
     - pamqp==3.2.1
     - partd==1.3.0
-    - pathy==0.6.2
+    - pathy==0.8.1
     - pillow==9.3.0
     - pluggy==1.0.0
     - preshed==3.0.8
     - prompt-toolkit==3.0.28
     - protobuf==3.19.6
-    - psycopg2==2.9.5
     - psycopg2-binary==2.9.5
     - pyasn1==0.4.8
     - pyasn1-modules==0.2.8
@@ -121,6 +113,7 @@ dependencies:
     - pykwalify==1.8.0
     - pymongo==3.10.1
     - pyparsing==3.0.9
+    - pyreadline3==3.4.1
     - pyrsistent==0.19.2
     - python-crfsuite==0.9.8
     - python-dateutil==2.8.2
@@ -157,19 +150,18 @@ dependencies:
     - spacy==3.4.3
     - spacy-legacy==3.0.10
     - spacy-loggers==1.0.3
-    - sqlalchemy==1.4.43
+    - sqlalchemy==1.4.44
     - srsly==2.4.5
     - tabulate==0.9.0
     - tarsafe==0.0.3
     - tensorboard==2.8.0
     - tensorboard-data-server==0.6.1
     - tensorboard-plugin-wit==1.8.1
-    - tensorflow==2.8.3
+    - tensorflow==2.8.4
     - tensorflow-addons==0.17.1
     - tensorflow-estimator==2.8.0
     - tensorflow-hub==0.12.0
     - tensorflow-io-gcs-filesystem==0.27.0
-    - tensorflow-text==2.8.2
     - termcolor==2.1.0
     - terminaltables==3.1.10
     - thinc==8.1.5
@@ -179,14 +171,12 @@ dependencies:
     - twilio==7.14.2
     - typeguard==2.13.3
     - typer==0.7.0
-    - typing==3.7.4.3
     - typing-extensions==4.4.0
     - typing-utils==0.1.0
     - tzdata==2022.6
     - tzlocal==4.2
     - ujson==5.5.0
     - urllib3==1.26.12
-    - uvloop==0.17.0
     - wasabi==0.10.1
     - wcwidth==0.2.5
     - webexteamssdk==1.6.1
@@ -195,4 +185,4 @@ dependencies:
     - wrapt==1.14.1
     - yarl==1.8.1
     - zipp==3.10.0
-prefix: /opt/mamba/envs/rasa-app
+prefix: C:\Users\idris\anaconda3\envs\rasa-app

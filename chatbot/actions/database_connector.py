@@ -13,7 +13,7 @@ def DataUpdate(
     Pushes Descriptive Analytics Data to the Database
     '''
     # Open the file and load the file
-    with open('/home/onyxia/EnergyBot/chatbot/config_db.yml') as f:
+    with open('config_db.yml') as f:
         credentials = yaml.load(f, Loader=SafeLoader)
     db = psycopg2.connect(
         database=credentials["database"],
