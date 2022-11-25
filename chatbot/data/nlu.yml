@@ -6,12 +6,6 @@ nlu:
     - hey
     - hello
     - hi
-    - hello there
-    - good morning
-    - good evening
-    - goodmorning
-    - goodevening
-    - good afternoonb
 
 - intent: goodbye
   examples: |
