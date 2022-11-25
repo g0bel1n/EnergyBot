@@ -29,8 +29,8 @@ def DataUpdate(
         port=credentials["port"])
     mycursor = db_connexion.cursor()
     query = f"""INSERT INTO customer_data("CIVILITY", "FIRSTNAME", "LASTNAME", \
-    "ZIPCODE", "EMAIL", "BIRTHYEAR", "ECOLO_SCORE", "WORKDAY_OCCUPATION", "MAX_POWER", "CONS_PROFILE") \
-    VALUES ('{civility_}', '{first_name_}', '{last_name_}', '{zip_code_}', '{email_}', \
+    "EMAIL", "ZIPCODE", "BIRTHYEAR", "ECOLO_SCORE", "WORKDAY_OCCUPATION", "MAX_POWER", "CONS_PROFILE") \
+    VALUES ('{civility_}', '{first_name_}', '{last_name_}',  '{email_}', '{zip_code_}', \
     {birthyear_}, {ecolo_score_}, '{workday_occupation_}', {max_power_}, '{cons_profile_}')"""
     mycursor.execute(query)
     db_connexion.commit()

@@ -207,8 +207,8 @@ class ActionSubmitForm(Action):
 
         DataUpdate(
             tracker.get_slot("civility"), tracker.get_slot("lastname"), 
-            tracker.get_slot("firstname"), tracker.get_slot("zipcode"),
-            tracker.get_slot("email"), tracker.get_slot("birthyear"),
+            tracker.get_slot("firstname"), tracker.get_slot("email"), 
+            tracker.get_slot("zipcode"), tracker.get_slot("birthyear"),
             tracker.get_slot("ecoloscore"), tracker.get_slot("workdayoccupation"), 
             tracker.get_slot("maxpower"), tracker.get_slot("consprofile"))
 
