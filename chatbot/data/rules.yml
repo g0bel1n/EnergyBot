@@ -2,23 +2,27 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: Goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Activate personal data form
+- rule: Onboarding refused
   steps:
-  - intent: request_personal_data
-  - action: personal_data_form
-  - active_loop: personal_data_form
+  - intent: deny
+  - action: utter_goodbye
 
+- rule: Activate data form
+  steps:
+  - intent: affirm
+  - action: data_form
+  - active_loop: data_form
 
-- rule: Submit personal data form
+- rule: Submit data form
   condition:
-  - active_loop: personal_data_form
+  - active_loop: data_form
   steps:
-  - action: personal_data_form
+  - action: data_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null

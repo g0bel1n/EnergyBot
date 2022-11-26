@@ -2,12 +2,16 @@ version: "3.1"
 
 intents:
   - greet
+  - mood_great
+  - mood_unhappy
+  - affirm
+  - deny
   - goodbye
-  - request_personal_data
+  - request_data
   - bot_challenge
 
 actions:
-- validate_personal_data_form
+- validate_data_form
 - action_submit_form
 
 slots:
@@ -17,7 +21,7 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: civility
   lastname:
     type: text
@@ -25,7 +29,7 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: lastname
   firstname:
     type: text
@@ -33,7 +37,7 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: firstname
   zipcode:
     type: text
@@ -41,7 +45,7 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: zipcode
   email:
     type: text
@@ -49,7 +53,7 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: email
   birthyear:
     type: text
@@ -57,7 +61,7 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: birthyear
   ecoloscore:
     type: text
@@ -65,7 +69,7 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: ecoloscore
   workdayoccupation:
     type: text
@@ -73,7 +77,7 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: workdayoccupation
   maxpower:
     type: text
@@ -81,7 +85,7 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: maxpower
   consprofile:
     type: text
@@ -89,11 +93,11 @@ slots:
     mappings:
     - type: from_text
       conditions:
-       - active_loop: personal_data_form
+       - active_loop: data_form
          requested_slot: consprofile
 
 forms:
-  personal_data_form:
+  data_form:
     required_slots:
       - civility
       - firstname
@@ -108,10 +112,13 @@ forms:
 
 responses:
   utter_greet:
-  - text: "Hey! I'm ErgoBot powered by EnsaEnergy TM, I help estimate your electricity consumption and provide you insights on energy savings you can make! Tell me how are your feelings today?"
+  - text: "Hey! I'm ErgoBot powered by EnsaEnergy TM, I help you estimate your electricity consumption and provide you insights on energy savings you can make! Tell me how are your feelings today?"
 
   utter_onboarding:
-  - text: "Read to discover my power?"
+  - text: "Ready to discover my power?"
+
+  utter_recomfort_onboarding:
+  - text: "Trust me I also provide amazing energies that change moods. Ready to discover my power?"
 
   utter_ask_civility:
   - text: "What is your civility?"
@@ -141,7 +148,7 @@ responses:
   - text: "What is the subscribed power of your contract?"
 
   utter_ask_consprofile:
-  - text: "To which profile do you belong to?"
+  - text: "To which profile do you belong?"
 
   utter_wrong_civility:
   - text: "Please provide a valide value of civility which is MR or MME"

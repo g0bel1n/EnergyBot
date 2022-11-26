@@ -2,6 +2,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Tracker, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
+from datetime import datetime
 
 from actions.database_connector import DataUpdate
 from actions.testing_slots import email_isValid, zipcode_isValid, civility_isValid, birthyear_isValid, ecoloscore_isValid, workdayoccupation_isValid, consprofile_isValid, maxpower_isValid
@@ -10,7 +11,7 @@ from actions.testing_slots import email_isValid, zipcode_isValid, civility_isVal
 class PersonalInfosFormValidation(FormValidationAction):
     """Example of a form validation action."""
     def name(self) -> Text:
-        return "validate_personal_data_form"
+        return "validate_data_form"
 
     def validate_civility(
         self,
@@ -210,7 +211,8 @@ class ActionSubmitForm(Action):
             tracker.get_slot("firstname"), tracker.get_slot("email"), 
             tracker.get_slot("zipcode"), tracker.get_slot("birthyear"),
             tracker.get_slot("ecoloscore"), tracker.get_slot("workdayoccupation"), 
-            tracker.get_slot("maxpower"), tracker.get_slot("consprofile"))
+            tracker.get_slot("maxpower"), tracker.get_slot("consprofile"),
+            datetime.now().strftime("%Y-%m-%d"))
 
         dispatcher.utter_message(template="utter_submit")
         return []

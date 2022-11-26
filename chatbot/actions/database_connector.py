@@ -2,6 +2,7 @@ import psycopg2
 from typing import Text
 import yaml
 from yaml.loader import SafeLoader
+from datetime import datetime
 
 
 def DataUpdate(
@@ -14,7 +15,8 @@ def DataUpdate(
         ecolo_score_: Text,
         workday_occupation_: Text, 
         max_power_: Text,
-        cons_profile_: Text) -> None:
+        cons_profile_: Text, 
+        request_date_: datetime) -> None:
     '''
     Pushes Descriptive Analytics Data to the Database
     '''
@@ -29,8 +31,8 @@ def DataUpdate(
         port=credentials["port"])
     mycursor = db_connexion.cursor()
     query = f"""INSERT INTO customer_data("CIVILITY", "FIRSTNAME", "LASTNAME", \
-    "EMAIL", "ZIPCODE", "BIRTHYEAR", "ECOLO_SCORE", "WORKDAY_OCCUPATION", "MAX_POWER", "CONS_PROFILE") \
+    "EMAIL", "ZIPCODE", "BIRTHYEAR", "ECOLO_SCORE", "WORKDAY_OCCUPATION", "MAX_POWER", "CONS_PROFILE", "REQUEST_DATE") \
     VALUES ('{civility_}', '{first_name_}', '{last_name_}',  '{email_}', '{zip_code_}', \
-    {birthyear_}, {ecolo_score_}, '{workday_occupation_}', {max_power_}, '{cons_profile_}')"""
+    {birthyear_}, {ecolo_score_}, '{workday_occupation_}', {max_power_}, '{cons_profile_}', '{request_date_}')"""
     mycursor.execute(query)
     db_connexion.commit()
