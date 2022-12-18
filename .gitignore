@@ -132,3 +132,6 @@ dmypy.json
 .DS_Store
 settings*
 data/*.csv
+
+*.csv
+*.pkl
