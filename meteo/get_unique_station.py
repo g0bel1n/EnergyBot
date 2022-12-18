@@ -7,8 +7,13 @@ df_SE = pd.read_csv(
     "data/SE2018.csv", chunksize=482, parse_dates=[4], infer_datetime_format=True
 )
 
-NW_stations_id = next(df_NW).iloc[:, :4]
-SE_stations_id = next(df_SE).iloc[:, :4]
+# drop nan
+
+NW_data = next(df_NW).dropna()
+SE_data = next(df_SE).dropna()
+
+NW_stations_id = NW_data.iloc[:, :4]
+SE_stations_id = SE_data.iloc[:, :4]
 
 NW_stations_id["zone"] = "NW"
 SE_stations_id["zone"] = "SE"
