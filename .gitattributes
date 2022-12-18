@@ -1,3 +1,5 @@
 consumption_prediction/** linguist-vendored
 chatbot/notebooks/** linguist-vendored
 
+*.ipynb linguist-vendored
+
