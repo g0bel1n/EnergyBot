@@ -1,19 +1,21 @@
 import streamlit as st
-import os
+from streamlit_chat import message
+import requests
 
 from pages import meteo
-
-
-import streamlit as st
-from streamlit_chat import message
 
 global adress
 
 adress = None
 
 
+
 def main():
     st.set_page_config(page_title="Energy Bot", page_icon=":robot:")
+
+    API_URL = "http://localhost:5005/model/parse"
+    #headers = {"Authorization": st.secrets['api_key']}
+
 
     st.header("Energy Bot")
 
@@ -24,13 +26,12 @@ def main():
         st.session_state["past"] = []
 
     def query(payload):
-        # Send the query to the API
-        # To complete
-        pass
+        response = requests.post(API_URL, json=payload)# headers=headers, )
+        return response.json()
 
     ### Get the user input
     def get_text():
-        input_text = st.text_input("You: ", "Hello, how are you?", key="input")
+        input_text = st.text_input("You: ", "hey", key="input")
         return input_text
 
     user_input = get_text()
@@ -39,15 +40,30 @@ def main():
     if user_input:
         output = query(
             {
-                "inputs": {
-                    "past_user_inputs": st.session_state.past,
-                    "generated_responses": st.session_state.generated,
-                    "text": user_input,
-                },
-                "parameters": {"repetition_penalty": 1.33},
-            }
-        )
-
+                "response_selector": 
+                {
+                    "all_retrieval_intents": [],
+                    "default": 
+                    {
+                        "response": 
+                        {
+                            "responses": null,
+                            "confidence": 0.0,
+                            "intent_response_key": null,
+                            "utter_action": "utter_None"
+                        }
+                    }
+                }
+            })
+            #{
+            #    "inputs": {
+            #        "past_user_inputs": st.session_state.past,
+            #        "generated_responses": st.session_state.generated,
+            #        "text": user_input,
+            #    },
+            #    "parameters": {"repetition_penalty": 1.33},
+            #}
+        
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output["generated_text"])
 
