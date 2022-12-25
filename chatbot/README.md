@@ -27,7 +27,7 @@ To enable the API for direct interaction with conversation trackers and other bo
 The request url is then http://localhost:5005/model/parse
 
 Useful links on RASA:
-https://rasa.com/docs/rasa/domain/#slot-mappings
-https://www.analyticsvidhya.com/blog/2022/02/a-simple-guide-to-rasa-3-x/
-https://medium.com/voice-tech-podcast/how-to-create-chatbot-using-rasa-82954e141ae7
-https://sysdig.com/blog/dockerfile-best-practices/
++ https://rasa.com/docs/rasa/domain/#slot-mappings
++ https://www.analyticsvidhya.com/blog/2022/02/a-simple-guide-to-rasa-3-x/
++ https://medium.com/voice-tech-podcast/how-to-create-chatbot-using-rasa-82954e141ae7
++ https://sysdig.com/blog/dockerfile-best-practices/
