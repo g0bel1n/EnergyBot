@@ -1,11 +1,17 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- intent: greeting/greets
   examples: |
     - hey
     - hello
     - hi
+
+- intent: greeting/formal_greets
+  examples: |
+    - good morning
+    - dear bot
+    - good evening
 
 - intent: mood_great
   examples: |
@@ -55,8 +61,6 @@ nlu:
     - no
     - n
     - never
-    - I don't think so
-    - don't like that
     - no way
     - not really
 

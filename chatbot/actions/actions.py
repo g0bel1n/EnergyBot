@@ -195,7 +195,6 @@ class PersonalInfosFormValidation(FormValidationAction):
 
 
 class ActionSubmitForm(Action):
-
     def name(self) -> Text:
         return "action_submit_form"
 

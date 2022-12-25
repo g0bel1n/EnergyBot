@@ -1,13 +1,12 @@
 version: "3.1"
 
 intents:
-  - greet
+  - greeting
   - mood_great
   - mood_unhappy
   - affirm
   - deny
   - goodbye
-  - request_data
   - bot_challenge
 
 actions:
@@ -110,15 +109,28 @@ forms:
       - maxpower
       - consprofile
 
+
 responses:
-  utter_greet:
+  utter_greeting/greets:
   - text: "Hey! I'm ErgoBot powered by EnsaEnergy TM, I help you estimate your electricity consumption and provide you insights on energy savings you can make! Tell me how are your feelings today?"
+
+  utter_greeting/formal_greets:
+  - text: "Dear User! I'm ErgoBot powered by EnsaEnergy TM, I help you estimate your electricity consumption and provide you insights on energy savings you can make! Tell me how are your feelings today?"
 
   utter_onboarding:
   - text: "Ready to discover my power?"
 
   utter_recomfort_onboarding:
   - text: "Trust me I also provide amazing energies that change moods. Ready to discover my power?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a ErgoBot, powered by Rasa and DKMS."
+
+  utter_submit:
+  - text: "Thanks"
 
   utter_ask_civility:
   - text: "What is your civility?"
@@ -168,26 +180,18 @@ responses:
   utter_wrong_birthyear:
   - text: "Sorry we are unable to proceed with your birthyear, please try again"
 
-  utter_ecoloscore:
+  utter_wrong_ecoloscore:
   - text: "Sorry we are unable to proceed with your ecology score, please try again"
 
-  utter_workdayoccupation:
+  utter_wrong_workdayoccupation:
   - text: "Sorry we are unable to proceed with your workday occupation, please try again"
 
-  utter_maxpower:
+  utter_wrong_maxpower:
   - text: "Sorry we are unable to proceed with your maxpower score, please try again"
 
-  utter_consprofile:
+  utter_wrong_consprofile:
   - text: "Sorry we are unable to proceed with your consumption profile occupation, please try again"
 
-  utter_submit:
-  - text: "Thanks"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a ErgoBot, powered by Rasa and DKMS."
 
 session_config:
   session_expiration_time: 60

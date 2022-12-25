@@ -4,15 +4,15 @@ stories:
 
 - story: happy path
   steps:
-  - intent: greet
-  - action: utter_greet
+  - intent: greeting
+  - action: utter_greeting
   - intent: mood_great
   - action: utter_onboarding
 
 - story: unhappy path
   steps:
-  - intent: greet
-  - action: utter_greet
+  - intent: greeting
+  - action: utter_greeting
   - intent: mood_unhappy
   - action: utter_recomfort_onboarding
 
