@@ -1,18 +1,65 @@
+# from Talky import TalkyChatbot
 import streamlit as st
+
+import pickle
+st.set_page_config(page_title="Energy Bot", page_icon=":robot:")
+
+import sys
+
+path2add = "/Users/g0bel1n/EnergyBot/"
+sys.path.append(path2add) if path2add not in sys.path else None
+
+from talky import TalkyChatbot
+
+
 from streamlit_chat import message
-import requests
-
-
-from pages import meteo
+from numpy.random import default_rng
 
 global adress
 
 adress = None
+rng = default_rng()
+sender_id = (
+    str(rng.integers(1000000000))
+    if ("sender_id" not in st.session_state or st.session_state["sender_id"] is None)
+    else st.session_state["sender_id"]
+)
+st.session_state["sender_id"] = sender_id
+st.session_state["last_input"] = (
+    None if "last_input" not in st.session_state else st.session_state["last_input"]
+)
 
-sender_id = "user__"
+st.session_state["bot"] = TalkyChatbot() if "bot" not in st.session_state else st.session_state["bot"]
+
+class chatMessage:
+    def __init__(self, value, id, is_user) -> None:
+        self.value = value
+        self.id = id
+        self.is_user = is_user
+
+    @classmethod
+    def from_list(cls, lst, id_list, is_user):
+        return list(map(lambda el : cls(*el, is_user), zip(lst, id_list)))
+
+
+class chatMessageFactory:
+    def __init__(self) -> None:
+        self.id = 0
+
+    def __call__(self, value, is_user):
+        if type(value) == list:
+            id_list = list(range(self.id+1, self.id + len(value)+1))
+            self.id += len(value)
+            return chatMessage.from_list(value, id_list, is_user)
+        
+        self.id += 1
+        return chatMessage(value, self.id, is_user)
+
+st.session_state['chatFactory'] = chatMessageFactory() if 'chatFactory' not in st.session_state else st.session_state['chatFactory']
+
+        
 
 def main():
-    st.set_page_config(page_title="Energy Bot", page_icon=":robot:")
 
     API_url = "http://localhost:5005/webhooks/rest/webhook"
     ### headers = {"Authorization": st.secrets['api_key']}
@@ -25,39 +72,59 @@ def main():
     if "past" not in st.session_state:
         st.session_state["past"] = []
 
+    if "chat" not in st.session_state:
+        greetings = st.session_state["bot"].greetings()[0]
+        st.session_state["chat"] = [st.session_state.chatFactory(greetings, False)]
+
     def query(payload):
-        response = requests.post(API_url, json=payload) #, headers=headers)
-        return response.json()
+        response = st.session_state["bot"].process_answer(payload)
+        return response
 
-    ### Get the user input
-    def get_text():
-        input_text = st.text_input("You: ", "", key="input")
-        return input_text
+    def clear_text():
+        st.session_state["last_input"] = st.session_state["input"]
+        st.session_state["input"] = ""
 
-    user_input = get_text()
+    # ### Get the user input
+    # def get_text():
+    #     input_text =
+    #     return input_text
+    # st.button("Submit", on_click=clear_text)
+
+    st.text_input(
+        "You: ",
+        "" ,help="Use numeric for numbers"if st.session_state["last_input"] else "Say hello to the bot",
+        key="input",
+        on_change=clear_text,
+    )
+
+    if (
+        st.session_state.bot.is_finished
+        and 'prediction' not in st.session_state
+    ):
+        st.session_state['prediction'] = st.session_state.bot.get_prediction()
+        st.session_state.chat.append(st.session_state.chatFactory(st.session_state['prediction'], False))
+        print(st.session_state.bot.get_recommendation())
+        st.session_state['chat'] += st.session_state.chatFactory(st.session_state.bot.get_recommendation(), False)
+
+
 
     ### Send the query to the API
-    if user_input:
-        
-        output = query(
-                    {
-                        "message": user_input,
-                        "sender": sender_id
-                    })
-        
-        st.session_state.past.append(user_input)
-        d = []
-        for receipt in output:
-            d.append(receipt["text"])
-        output_text = ". ".join(d)
-        st.session_state.generated.append(output_text)
+    if st.session_state["last_input"]:
 
-    ### Display the chat
-    if st.session_state["generated"]:
+        print(st.session_state["last_input"])
 
-        for i in range(len(st.session_state["generated"]) - 1, -1, -1):
-            message(st.session_state["generated"][i], key=str(i))
-            message(st.session_state["past"][i], is_user=True, key=f"{str(i)}_user")
+        output = query(st.session_state["last_input"])
+        print(output)
+        st.session_state.chat.append(st.session_state.chatFactory(st.session_state["last_input"], True))
+        st.session_state.chat += st.session_state.chatFactory(output, False)
+        st.session_state["last_input"] = None
+
+
+    if st.session_state.chat:
+        for msg in st.session_state.chat[::-1]:
+            message(msg.value, is_user = msg.is_user, key=msg.id)
+
+
 
     ### Get adress when asked from the customer
 
