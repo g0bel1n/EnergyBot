@@ -1,11 +1,11 @@
 FROM python:3.9-slim
 
-ADD ./EnergyBot .
+ADD ./EnergyBotApp .
 COPY . .
 
 RUN pip install --upgrade pip && pip install -r requirements.txt 
 
-WORKDIR ./EnergyBot
+WORKDIR ./EnergyBotApp
 
 RUN chmod +x data_setup.sh meteo/get_data.sh  \
     && apt-get update \
