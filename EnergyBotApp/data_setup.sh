@@ -64,5 +64,8 @@ while IFS= read -r f; do
     fi
 done <"$filelist"
 
+rm "data/NW${year}.csv"
+rm "data/SE${year}.csv"
+
 
 printf  "${GREEN}All required files are present${NC}\n"
