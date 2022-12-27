@@ -185,4 +185,3 @@ dependencies:
     - wrapt==1.14.1
     - yarl==1.8.1
     - zipp==3.10.0
-prefix: C:\Users\idris\anaconda3\envs\rasa-app

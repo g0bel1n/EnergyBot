@@ -2,8 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.yml
-*.yaml
 
 # C extensions
 *.so
@@ -129,6 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
 .DS_Store
 settings*
 data/*.csv
+
+*.csv
+*.pkl
+.vscode

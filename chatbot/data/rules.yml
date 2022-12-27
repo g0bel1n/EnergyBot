@@ -7,14 +7,15 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Onboarding refused
-  steps:
-  - intent: deny
-  - action: utter_goodbye
+#- rule: Onboarding refused
+#  steps:
+#  - intent: onboarding
+#  - action: utter_onboarding
 
 - rule: Activate data form
   steps:
-  - intent: affirm
+  - intent: onboarding
+  - action: utter_onboarding
   - action: data_form
   - active_loop: data_form
 

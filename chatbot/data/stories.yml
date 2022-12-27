@@ -2,17 +2,10 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: greeting
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_onboarding
-
-- story: unhappy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_recomfort_onboarding
+  - intent: greeting
+  - action: utter_greeting
+  - intent: mood
+  - action: utter_mood
 

@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 
 # create a conda env with required modules
-RUN conda env create -f environments.yml
+RUN conda env create -f requirements.txt
 
 # Copy project files on the Docker image
 WORKDIR /chatbot
@@ -16,4 +16,4 @@ RUN rasa train nlu
 ENTRYPOINT [ "rasa" ]
 
 # Command to run when container is called to run
-CMD [ "run", "--enable-api", "--port", "8080" ]
+CMD [ "run", "--enable-api", "--debug"]

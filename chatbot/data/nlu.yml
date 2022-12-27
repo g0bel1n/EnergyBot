@@ -1,13 +1,19 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- intent: greeting/greets
   examples: |
     - hey
     - hello
     - hi
 
-- intent: mood_great
+- intent: greeting/formal_greets
+  examples: |
+    - good morning
+    - dear bot
+    - good evening
+
+- intent: mood/great
   examples: |
     - perfect
     - great
@@ -24,7 +30,7 @@ nlu:
     - so good
     - so perfect
 
-- intent: mood_unhappy
+- intent: mood/unhappy
   examples: |
     - my day was horrible
     - I am sad
@@ -41,7 +47,7 @@ nlu:
     - so saad
     - so sad
 
-- intent: affirm
+- intent: onboarding/affirm
   examples: |
     - yes
     - y
@@ -50,13 +56,11 @@ nlu:
     - that sounds good
     - correct
 
-- intent: deny
+- intent: onboarding/deny
   examples: |
     - no
     - n
     - never
-    - I don't think so
-    - don't like that
     - no way
     - not really
 
