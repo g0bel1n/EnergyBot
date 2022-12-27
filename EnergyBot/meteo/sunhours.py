@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 url = "https://www.date-pratique.fr/heure-lever-coucher-soleil.html"
 r = requests.get(url)
-soup = BeautifulSoup(r.content, "html5lib")
+soup = BeautifulSoup(r.content, "html.parser")
 
 
 table = soup.find("div", attrs={"class": "table-responsive-sm text-center col-xl-6"})
