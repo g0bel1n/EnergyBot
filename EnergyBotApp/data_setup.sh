@@ -1,6 +1,6 @@
 while getopts 'y:' flag; do
     case "${flag}" in 
-    y) year=${OPTARG};;
+    y) year="${OPTARG}";;
     esac
 done
 
