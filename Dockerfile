@@ -3,7 +3,7 @@ FROM python:3.9-slim
 ADD ./EnergyBotApp .
 COPY . .
 
-#RUN pip install --upgrade pip && pip install -r requirements.txt 
+RUN pip install --upgrade pip && pip install -r requirements.txt 
 
 WORKDIR ./EnergyBotApp
 
