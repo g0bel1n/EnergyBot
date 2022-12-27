@@ -15,7 +15,7 @@ def email_check(email: Text) -> bool:
 
 
 def postcode_check(postcode: Text) -> bool:
-    list_zip_codes = pd.read_csv("EnergyBot/data/commune2021.csv")["COM"].unique()
+    list_zip_codes = pd.read_csv("data/commune2021.csv")["COM"].unique()
     return str(postcode) in list_zip_codes
 
 

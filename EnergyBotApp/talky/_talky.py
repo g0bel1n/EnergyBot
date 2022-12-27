@@ -16,12 +16,13 @@ from .checkers import (
 
 from typing import Text
 
-__devices__ = ('fridge', 'washingmachine', 'dryer', 'dishwasher')
+__devices__ = ("fridge", "washingmachine", "dryer", "dishwasher")
+
 
 class TalkyChatbot:
     def __init__(self, id=1) -> None:
         self.id = id
-        with open("EnergyBot/talky/script.json", "r") as f:
+        with open("talky/script.json", "r") as f:
             self.script = json.load(f)
         self.steps = list(self.script.keys())
 
@@ -67,11 +68,14 @@ class TalkyChatbot:
         assert (
             len(self.data.keys()) == self.n_questions
         ), "Not all questions were answered"
-        with open("EnergyBot/data/user_data.json", "w") as f:
+        with open("data/user_data.json", "w") as f:
             json.dump(self.data, f)
 
     def _check(self, *args):
-        return getattr(self, f"{'device' if self.current_step in __devices__ else self.current_step}_check")(*args)
+        return getattr(
+            self,
+            f"{'device' if self.current_step in __devices__ else self.current_step}_check",
+        )(*args)
 
     def _is_valid(self, input_text: Text) -> bool:
         if self.current_step == "greetings":
@@ -101,29 +105,35 @@ class TalkyChatbot:
 
     @staticmethod
     def _load_model():
-        return pickle.load(open("EnergyBot/model/rf.pkl", "rb"))
+        return pickle.load(open("model/rf.pkl", "rb"))
 
     def get_prediction(self):
         rf = self._load_model()
-        x = np.array([self.data['ecoloscore'], self.data['workday']]+[self.data[el] for el in __devices__] + [self.data['npersons']]).reshape(1, -1)
+        x = np.array(
+            [self.data["ecoloscore"], self.data["workday"]]
+            + [self.data[el] for el in __devices__]
+            + [self.data["npersons"]]
+        ).reshape(1, -1)
         pred = rf.predict(x)
-    
+
         return f"Your energy consumption is estimated to be {pred[0]:.2f} kWh per day"
 
     def get_recommendation(self):
         recommandation = []
-        if float(self.data['fridge'])> 5:
-            recommandation.append('You should buy a fridge with a better energy label')
-        if float(self.data['washingmachine'])> 5:
-            recommandation.append('You should buy a washing machine with a better energy label')
-        if float(self.data['dryer'])> 5:
-            recommandation.append('You should buy a dryer with a better energy label')
-        if float(self.data['dishwasher'])> 5:
-            recommandation.append('You should buy a dishwasher with a better energy label')
+        if float(self.data["fridge"]) > 5:
+            recommandation.append("You should buy a fridge with a better energy label")
+        if float(self.data["washingmachine"]) > 5:
+            recommandation.append(
+                "You should buy a washing machine with a better energy label"
+            )
+        if float(self.data["dryer"]) > 5:
+            recommandation.append("You should buy a dryer with a better energy label")
+        if float(self.data["dishwasher"]) > 5:
+            recommandation.append(
+                "You should buy a dishwasher with a better energy label"
+            )
 
-        return recommandation or ['You are doing great!']
-
-
+        return recommandation or ["You are doing great!"]
 
 
 if __name__ == "__main__":

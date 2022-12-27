@@ -4,10 +4,13 @@ import streamlit as st
 st.set_page_config(page_title="Energy Bot", page_icon=":robot:")
 
 import sys
+import os
 
-# path2add = "/Users/g0bel1n/EnergyBot/"
-# if path2add not in sys.path :sys.path.append(path2add)
-from EnergyBot.talky import TalkyChatbot
+path2add = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+# print(path2add)
+if path2add not in sys.path :sys.path.append(path2add)
+
+from talky import TalkyChatbot
 
 
 from streamlit_chat import message

@@ -1,8 +1,8 @@
-while getopts y:z: flag
+while getopts "y:z:" flag;
 do
     case "${flag}" in
-        y) year=${OPTARG};;
-        z) zone=${OPTARG};;
+        y) year="${OPTARG}";;
+        z) zone="${OPTARG}";;
     esac
 done
 

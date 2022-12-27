@@ -1,7 +1,7 @@
 {
     "greetings": {
         "question": "Hello, I am EnergyBot. I can help you to estimate your energy consumption.",
-        "ok" : "Ok, let's start"
+        "ok": "Ok, let's start"
     },
     "postcode": {
         "question": "What is your postcode ?",
@@ -38,32 +38,25 @@
         "error": "Sorry, I did not understand your answer. Can you repeat it ?",
         "ok": "Ok, got it"
     },
-
     "washingmachine": {
         "question": "Do you own a washing machine ? if yes please answer with its power in watt. Otherwise answer with 0",
         "error": "Sorry, I did not understand your answer. Can you repeat it ?",
         "ok": "Ok, got it"
     },
-
     "dishwasher": {
         "question": "Do you own a dishwasher ? if yes please answer with its power in watt. Otherwise answer with 0",
         "error": "Sorry, I did not understand your answer. Can you repeat it ?",
         "ok": "Ok, got it"
     },
-
     "dryer": {
         "question": "Do you own a dryer ? if yes please answer with its power in watt. Otherwise answer with 0",
         "error": "Sorry, I did not understand your answer. Can you repeat it ?",
         "ok": "Ok, got it"
     },
-
     "fridge": {
         "question": "Do you own a fridge ? if yes please answer with its power in watt. Otherwise answer with 0",
         "error": "Sorry, I did not understand your answer. Can you repeat it ?",
         "ok": "Ok, got it"
     },
-
-
-    "end" : "Thank you for your answers. I am now computing your energy consumption"
-    
+    "end": "Thank you for your answers. I am now computing your energy consumption. Please refresh in a couple of seconds !"
 }
