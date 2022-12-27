@@ -43,6 +43,15 @@ else
     printf "  Done."
 fi
 
+if test -f "data/commune2021.csv"; then
+    printf  "   data/commune2021.csv is already present\n"
+else
+    printf "${YELLOW} downloading data/commune2021.csv${NC}\n"
+    wget https://www.insee.fr/fr/statistiques/fichier/5057840/commune2021-csv.zip
+    unzip commune2021-csv.zip -d data
+    rm commune2021-csv.zip
+fi
+
 
 while IFS= read -r f; do
     if [[ -e $dir/$f ]]; then

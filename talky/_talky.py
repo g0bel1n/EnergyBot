@@ -21,7 +21,7 @@ __devices__ = ('fridge', 'washingmachine', 'dryer', 'dishwasher')
 class TalkyChatbot:
     def __init__(self, id=1) -> None:
         self.id = id
-        with open("Talky/script.json", "r") as f:
+        with open("talky/script.json", "r") as f:
             self.script = json.load(f)
         self.steps = list(self.script.keys())
 
@@ -67,7 +67,7 @@ class TalkyChatbot:
         assert (
             len(self.data.keys()) == self.n_questions
         ), "Not all questions were answered"
-        with open("Talky/data/user_data.json", "w") as f:
+        with open("data/user_data.json", "w") as f:
             json.dump(self.data, f)
 
     def _check(self, *args):
@@ -101,7 +101,7 @@ class TalkyChatbot:
 
     @staticmethod
     def _load_model():
-        return pickle.load(open("Talky/model/rf.pkl", "rb"))
+        return pickle.load(open("model/rf.pkl", "rb"))
 
     def get_prediction(self):
         rf = self._load_model()
