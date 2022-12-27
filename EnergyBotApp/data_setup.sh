@@ -1,9 +1,7 @@
 while getopts y: flag
 do
-    case "${flag}" in
-        y) year=${OPTARG};;
+    case ("${flag}" in y) year=${OPTARG};;
     esac
-        
 done
 
 filelist='required_files.txt'
