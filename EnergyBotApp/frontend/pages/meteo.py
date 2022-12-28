@@ -6,10 +6,10 @@ import pgeocode
 from sklearn.neighbors import NearestNeighbors
 
 
-def have_data(adress, min_lat, max_lat, min_lon, max_lon):
+def have_data(address, min_lat, max_lat, min_lon, max_lon):
 
     lon, lat, place_name, state_name = pgeocode.Nominatim("fr").query_postal_code(
-        adress
+        address
     )[["longitude", "latitude", "community_name", "state_name"]]
 
     if min_lat <= lat <= max_lat and min_lon <= lon <= max_lon:
@@ -197,23 +197,23 @@ def plot_meteo_data(lon, lat):
         st.plotly_chart(fig)
 
 
-def main(adress):
+def main(address):
     st.set_page_config(page_title="Meteo", page_icon="🌍")
     st.title("Meteo")
     st.write("This is the meteo page")
 
-    if adress is not None:
-        data_bool, lon, lat, place_name = have_data(adress, 41.2, 51.2, -5.5, 9.5)
+    if address is not None:
+        data_bool, lon, lat, place_name = have_data(address, 41.2, 51.2, -5.5, 9.5)
         if data_bool:
-            st.write("We have data for your adress")
-            st.write("Your adress is in ", place_name)
+            st.write("We have data for your address")
+            st.write("Your address is in ", place_name)
 
             plot_meteo_data(lon, lat)
 
-        else :
-            st.write("We don't have data for your adress")
+        else:
+            st.write("We don't have data for your address")
     else:
-        st.write("You didn't enter your adress yet")
+        st.write("You didn't enter your address yet")
 
 
 if __name__ == "__main__":
@@ -222,4 +222,4 @@ if __name__ == "__main__":
     except json.JSONDecodeError:
         postcode = None
 
-    main(adress=postcode)
+    main(address=postcode)
