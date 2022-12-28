@@ -1,2 +1,2 @@
 *.ipynb linguist-vendored
-.github/* merge=ours
+.github/workflows/*  merge=ours
