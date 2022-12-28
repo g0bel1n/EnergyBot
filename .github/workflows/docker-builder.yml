@@ -15,6 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag g0bel1n/energybot:$(date +%s) \
-           && docker login -u 'g0bel1n' -p ${{ secrets.DOCKER_PASSWORD }} \
-           && docker push g0bel1n/energybot:latest
+      run: |
+            docker build . --file Dockerfile --tag g0bel1n/energybot:$(date +%s) 
+            docker login -u 'g0bel1n' -p ${{ secrets.DOCKER_PASSWORD }} 
+            docker push g0bel1n/energybot:latest
