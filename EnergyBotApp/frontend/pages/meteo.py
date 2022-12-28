@@ -216,7 +216,7 @@ def main(address):
             plot_meteo_data(lon, lat)
 
         else:
-            st.write("We don't have data for your address")
+            st.write("We don't have data for your address : We only have date for the south-west and north-east of France")
     else:
         st.write("You didn't enter your address yet")
 
