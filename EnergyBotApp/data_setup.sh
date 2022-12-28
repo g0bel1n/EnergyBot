@@ -4,6 +4,8 @@ while getopts 'y:' flag; do
     esac
 done
 
+[ -z "$year" ] && year=2018
+
 filelist='required_files.txt'
 dir='data'
 GREEN='\033[0;32m'
@@ -52,7 +54,7 @@ fi
 
 
 while IFS= read -r f; do
-    if [[ -e $dir/$f ]]; then
+    if [ -e $dir/$f ]; then
         printf '    %s exists in %s\n' "$f" "$dir"
     else
         printf '%s is missing in %s\n' "$f" "$dir"
