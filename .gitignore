@@ -130,7 +130,8 @@ dmypy.json
 
 .DS_Store
 settings*
-data/*.csv
-
-*.csv
 .vscode
+
+EnergyBotApp/data/NW2018.csv
+EnergyBotApp/data/SE2018.csv
+consumption_prediction/data/*
