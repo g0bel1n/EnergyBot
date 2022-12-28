@@ -1,0 +1,62 @@
+{
+    "greetings": {
+        "question": "Hello, I am EnergyBot. I can help you to estimate your energy consumption.",
+        "ok": "Ok, let's start"
+    },
+    "postcode": {
+        "question": "What is your postcode ?",
+        "error": "Sorry, I did not understand your postcode. Can you repeat it ?",
+        "ok": "Ok, I understand your postcode"
+    },
+    "email": {
+        "question": "At which email address can I contact you ?",
+        "error": "Sorry, I did not understand your email address. Can you repeat it ?",
+        "ok": "Ok, I understand your email address"
+    },
+    "ecoloscore": {
+        "question": "I want to know how much do you value yourself as eco-responsible. Could you give yourself a score between 1 and 5 ? \n 1 being world is doomed, 5 being I am a tree",
+        "error": "Sorry, I did not understand your score. Can you repeat it ?",
+        "ok": "Ok, I understand your score"
+    },
+    "workday": {
+        "question": "How much hours do work from home in average ? (Can be 0)",
+        "error": "Sorry, I did not understand your answer. Can you repeat it ?",
+        "ok": "Ok, I understand your answer"
+    },
+    "consprofile": {
+        "question": "What is the consumption profile you subscibed to with your energy provider ? (Must figure on your bill) \n RES1, RES2",
+        "error": "Sorry, I did not understand your answer. Can you repeat it ?",
+        "ok": "Ok, got it"
+    },
+    "maxpower": {
+        "question": "What is the max power you are subscribed to ? (Must figure on your bill)",
+        "error": "Sorry, I did not understand your answer. Can you repeat it ?",
+        "ok": "Ok, got it"
+    },
+    "npersons": {
+        "question": "How many persons are living in your household ?",
+        "error": "Sorry, I did not understand your answer. Can you repeat it ?",
+        "ok": "Ok, got it"
+    },
+    "washingmachine": {
+        "question": "Do you own a washing machine ? if yes please answer with its power in watt. Otherwise answer with 0",
+        "error": "Sorry, I did not understand your answer. Can you repeat it ?",
+        "ok": "Ok, got it"
+    },
+    "dishwasher": {
+        "question": "Do you own a dishwasher ? if yes please answer with its power in watt. Otherwise answer with 0",
+        "error": "Sorry, I did not understand your answer. Can you repeat it ?",
+        "ok": "Ok, got it"
+    },
+    "dryer": {
+        "question": "Do you own a dryer ? if yes please answer with its power in watt. Otherwise answer with 0",
+        "error": "Sorry, I did not understand your answer. Can you repeat it ?",
+        "ok": "Ok, got it"
+    },
+    "fridge": {
+        "question": "Do you own a fridge ? if yes please answer with its power in watt. Otherwise answer with 0",
+        "error": "Sorry, I did not understand your answer. Can you repeat it ?",
+        "ok": "Ok, got it"
+    },
+    "end": "Thank you for your answers. I am now computing your energy consumption. Please refresh in a couple of seconds !"
+}

@@ -133,5 +133,4 @@ settings*
 data/*.csv
 
 *.csv
-*.pkl
 .vscode

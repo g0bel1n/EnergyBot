@@ -1,0 +1,8 @@
+SE_wind_d.csv
+SE_wind_f.csv
+SEdaily_suntime.csv
+SE_precip.csv
+NW_wind_f.csv
+NW_wind_d.csv
+NWdaily_suntime.csv
+NW_precip.csv

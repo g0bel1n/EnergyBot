@@ -1,13 +1,20 @@
 # EnergyBot
 Ensae Cloud Computing Project
 
-[Repartition](https://genes-my.sharepoint.com/:w:/g/personal/ikonkobo_ensae_fr/EZ-Ad_AlelRFl0VXvzRgn3QBUNXoXNZUaScYzuJt3DvHng?e=uWN3aD)
+EnergyBot |
+          |- consumption_prediction
+          |- EnergyBotApp  
 
-## Objectifs pour 
+run at level EnergyBot
 
-- Météo 
-- Première version Chatbot
+```
+docker build -t energybot1 . 
+```
 
+to download and process the data 
 
-## Liens utiles
-[Ensae Reproductibilité](https://ensae-reproductibilite.netlify.app/application/)
+```
+chmod +x meteo/get_data.sh  data_setup.sh
+./data_setup.sh -y 2018
+```
+

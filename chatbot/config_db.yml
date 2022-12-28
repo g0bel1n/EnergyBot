@@ -1,5 +1,0 @@
-database: "postgres"
-host: "IKONKOBO"
-user: "postgres"
-password: "k3tstx73pdjfa7813dai"
-port: "5432"
