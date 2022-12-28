@@ -27,6 +27,15 @@ target="_blank"><img src="https://img.shields.io/badge/python-3.9-blue.svg?style
 
 ## Onboarding 
 
+Get latest image tag [here](https://hub.docker.com/repository/registry-1.docker.io/g0bel1n/energybot/tags?page=1&ordering=last_updated) 
+
+```
+docker pull g0bel1n/energybot:#latest-tag
+```
+```
+docker run -p 8501:8501  -d g0bel1n/energybot:#latest-tag
+```
+
 
 ## The repo in details
 
