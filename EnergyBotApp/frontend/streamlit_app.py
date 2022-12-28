@@ -14,8 +14,11 @@ from talky import TalkyChatbot
 
 
 from streamlit_chat import message
-from numpy.random import default_rng
+from numpy.random import default_rng, randint
 
+
+list_avatars = ["avataaars", "micah", "human",
+                     "miniavs", "open-peeps", "pixel-art"]
 
 st.session_state["last_input"] = (
     None if "last_input" not in st.session_state else st.session_state["last_input"]
@@ -51,6 +54,7 @@ class chatMessageFactory:
         return chatMessage(value, self.id, is_user)
 
 
+
 st.session_state["chatFactory"] = (
     chatMessageFactory()
     if "chatFactory" not in st.session_state
@@ -58,7 +62,7 @@ st.session_state["chatFactory"] = (
 )
 
 
-def main():
+def main(rand_index):
 
     st.header("Energy Bot")
 
@@ -109,12 +113,20 @@ def main():
         )
         st.session_state.chat += st.session_state.chatFactory(output, False)
         st.session_state["last_input"] = None
+    
+    avatar_dict = {True: list_avatars[rand_index], False: "bottts/red"}
 
     if st.session_state.chat:
         for msg in st.session_state.chat[::-1]:
-            message(msg.value, is_user=msg.is_user, key=msg.id)
+            message(
+                msg.value,
+                is_user=msg.is_user,
+                key=msg.id,
+                avatar_style=avatar_dict[msg.is_user])
 
 
 if __name__ == "__main__":
+    
+    rand_index = randint(len(list_avatars), size=1)[0]
 
-    main()
+    main(rand_index)
