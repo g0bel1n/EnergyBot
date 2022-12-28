@@ -10,19 +10,21 @@ The model here is based on synthetic customer base data since we have not owned 
 
 | Feature | Type of data | Description | Values/Modalities | 
 |-:|:--:|:--:|:-:|
+| email | Personal | Email address |  |
+| postcode | Personal | Post code |  |
 | Cons_Profile | Contractual | Profile to which belongs the customer, obtained from  | RES1, RES11, RES2 |
-| subscribed_power | Contractual |  |  |
-| ecolo score | Behavioural |  |  |
-| worday | Behavioural | Average number of hour spent at home during working days |  |
+| max_power | Contractual | Subscribed power of the contract | 3, 6, 9, 12, 15, 18, 24, 30, 36 (kVA) |
+| ecolo score | Behavioural | Auto-valuation as eco-responsible | INT between 1 and 5 |
+| workday | Behavioural | Average number of hours at home for working | INT |
 | nb_habitant |  | Number of habitants in the household | INT |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-| target |  | Average daily consumption over a year  |  |
+| fridge_power | Energy Landscape | Power of owned fridge | Real expressed in Watt |
+| dryer_power | Energy Landscape | Power of owned dryer | Real expressed in Watt  |
+| dishwasher_power | Energy Landscape | Power of owned dishwasher | Real expressed in Watt  |
+| washing machine_power | Energy Landscape | Power of owned washing machine | Real expressed in Watt  |
+| target |  | Average daily consumption over a year  | Real expressed in kWh |
 
 # Data Generation
 After framing the data dictionnary and before simulation, we preprocessed raw data which reflect the customer consumption according to some contractual characteritics and published by ENEDIS. Afterwards the simulation made in two parts is first based on input features  generation and then the target construction merely obtained by noising weighted input informations.
 
 # Data Modelling
-The model rolled out is a RandomForest with <code>n_estimators=100<\code> and the other parameters at theirs default values. The model once fitted is dumped into a picke file stored in EnergyBot/EnergyBotApp/model/rf.pkl.
+The model rolled out is a RandomForest with <code> n_estimators=100 <\code> and the other parameters at theirs default values. The model once fitted is dumped into a picke file stored in EnergyBot/EnergyBotApp/model/rf.pkl.
