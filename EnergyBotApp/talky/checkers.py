@@ -44,5 +44,6 @@ def consprofile_check(consprofile: Text) -> bool:
 def npersons_check(npersons: Text) -> bool:
     return npersons.isnumeric() and int(npersons) > 0
 
+
 def device_check(device: Text) -> bool:
     return device.isnumeric() and int(device) >= 0

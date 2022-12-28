@@ -39,12 +39,14 @@ docker run -p 8501:8501  -d g0bel1n/energybot:#latest-tag
 
 ## The repo in details
 
+
+
 ### Meteo Data
 blablabla
 
-EnergyBot |
-          |- consumption_prediction
-          |- EnergyBotApp  
+EnergyBot 
+    |-- consumption_prediction
+    |-- EnergyBotApp  
 
 run at level EnergyBot
 
@@ -58,4 +60,3 @@ to download and process the data
 chmod +x meteo/get_data.sh  data_setup.sh
 ./data_setup.sh -y 2018
 ```
-
