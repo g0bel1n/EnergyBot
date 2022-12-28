@@ -1,6 +1,7 @@
 import json
 import numpy as np
 import pickle
+import pandas as pd
 
 from .checkers import (
     email_check,
@@ -112,12 +113,12 @@ class TalkyChatbot:
             + [self.data[el] for el in __devices__]
             + [self.data["npersons"]]
         ).reshape(1, -1)
-        fnames = [   #To fix features name warning
-        "ecolo score",
-        "worday",
-        *[f"paysage_{i}" for i in range(4)],
-        "nb_habitant",
-         ]
+        fnames = [  # To fix features name warning
+            "ecolo score",
+            "worday",
+            *[f"paysage_{i}" for i in range(4)],
+            "nb_habitant",
+        ]
         x = pd.DataFrame(x, columns=fnames)
         pred = rf.predict(x)
 
