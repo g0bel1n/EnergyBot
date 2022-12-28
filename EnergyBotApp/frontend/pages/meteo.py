@@ -5,14 +5,20 @@ import json
 import pgeocode
 from sklearn.neighbors import NearestNeighbors
 
+def is_in_NW(lon, lat):
+    return lat >= 46.32 and lon <= 1.96
 
-def have_data(address, min_lat, max_lat, min_lon, max_lon):
+def is_in_SE(lon, lat):
+    return lat <= 46.17 and lon >= 2.12
+
+def have_data(address):
+
 
     lon, lat, place_name, state_name = pgeocode.Nominatim("fr").query_postal_code(
         address
     )[["longitude", "latitude", "community_name", "state_name"]]
 
-    if min_lat <= lat <= max_lat and min_lon <= lon <= max_lon:
+    if is_in_NW(lon, lat) or is_in_SE(lon, lat):
         return True, lon, lat, f"{str(place_name)}, {str(state_name)}"
 
     return (False, 0, 0, 0)
