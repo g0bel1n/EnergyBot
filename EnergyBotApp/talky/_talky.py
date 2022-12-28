@@ -38,8 +38,6 @@ class TalkyChatbot:
         self.npersons_check = npersons_check
         self.device_check = device_check
 
-        self.current_checker = None
-
         self.steps_to_ask = self.steps[1:-1]
         self.n_questions = len(self.steps_to_ask)
         self.rng = np.random.default_rng()
@@ -114,6 +112,13 @@ class TalkyChatbot:
             + [self.data[el] for el in __devices__]
             + [self.data["npersons"]]
         ).reshape(1, -1)
+        fnames = [   #To fix features name warning
+        "ecolo score",
+        "worday",
+        *[f"paysage_{i}" for i in range(4)],
+        "nb_habitant",
+         ]
+        x = pd.DataFrame(x, columns=fnames)
         pred = rf.predict(x)
 
         return f"Your energy consumption is estimated to be {pred[0]:.2f} kWh per day"

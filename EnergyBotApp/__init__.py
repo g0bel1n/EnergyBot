@@ -1,19 +1,15 @@
-from .checkers import (
+from .talky import (
+    TalkyChatbot,
     email_check,
     postcode_check,
     birthyear_check,
     ecoloscore_check,
     workday_check,
     maxpower_check,
+    consprofile_check,
     npersons_check,
     device_check,
-    consprofile_check
-
-
-
-
 )
-from ._talky import TalkyChatbot
 
 
 __all__ = [
@@ -24,8 +20,7 @@ __all__ = [
     "ecoloscore_check",
     "workday_check",
     "maxpower_check",
+    "consprofile_check",
     "npersons_check",
     "device_check",
-    "consprofile_check",
-
 ]

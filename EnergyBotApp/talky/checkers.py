@@ -11,7 +11,7 @@ def email_check(email: Text) -> bool:
     regex = re.compile(
         r"([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+"
     )
-    return re.fullmatch(regex, email)
+    return re.fullmatch(regex, email) is not None
 
 
 def postcode_check(postcode: Text) -> bool:
