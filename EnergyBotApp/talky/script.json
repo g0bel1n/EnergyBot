@@ -24,7 +24,7 @@
         "ok": "Ok, I understand your answer"
     },
     "consprofile": {
-        "question": "What is the consumption profile you subscibed to with your energy provider ? (Must figure on your bill) \n RES1, RES2",
+        "question": "What is the consumption profile you subscibed to with your energy provider ? (Must figure on your bill) \n RES1, RES11, RES2",
         "error": "Sorry, I did not understand your answer. Can you repeat it ?",
         "ok": "Ok, got it"
     },
