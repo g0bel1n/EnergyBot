@@ -210,8 +210,10 @@ def main(adress):
 
             plot_meteo_data(lon, lat)
 
+        else :
+            st.write("We don't have data for your adress")
     else:
-        st.write("We don't have data for your adress")
+        st.write("You didn't enter your adress yet")
 
 
 if __name__ == "__main__":
