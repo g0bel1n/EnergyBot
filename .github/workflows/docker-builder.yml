@@ -18,4 +18,4 @@ jobs:
       run: |
             docker build . --file Dockerfile --tag g0bel1n/energybot:$(date +%s) 
             docker login -u 'g0bel1n' -p ${{ secrets.DOCKER_PASSWORD }} 
-            docker push g0bel1n/energybot:latest
+            docker push --all-tags g0bel1n/energybot
