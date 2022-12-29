@@ -41,8 +41,7 @@ docker run -p 8501:8501  -d g0bel1n/energybot:latest
 We have 2 (and a half) continuous integration (CI) procedures that are launched at every push to the main branch
 -  Testing. Pytest collects the test from the tests folder and execute them
    -  if Testing goes through, a Docker Image is built and pushed onto the docker hub
-- Mirroring. The commits are shared with course gitlab repositorie
-
+- Mirroring. The commits are shared with course gitlab repository for the course
 
 ### Meteo Data
 
@@ -54,6 +53,17 @@ The second source is dates-pratiques, a website from which we scrap the sunrise 
 
 The advantage of our method is that, we don't need to get data during runtime, so we only have to launch this script once.
 Even if the base files are about 3 to 4 GB large, once processed, what we need is aroung 30-40 MB. Therefore we decided to add it to in the Docker Image directly instead of running the bash script. It is faster and does not require to waste data downloading the same files at each build. It is a reasonable trade-off as the docker image is about 300MB.
+
+### Talky
+
+We used to work with rasa .........
+
+In the end we hardcoded the bot ourselves, using OOP. It basically handles the logic and computation part of our project.
+
+
+### Frontend
+
+We chose to use streamlit for building our frontend for its simplicity and our experience with it. We also used a non-official package `streamlit-chat` to display the conversation of the user with the bot. 
 
 ### Something
 
