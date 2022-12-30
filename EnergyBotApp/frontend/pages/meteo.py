@@ -6,12 +6,33 @@ import pgeocode
 from sklearn.neighbors import NearestNeighbors
 
 def is_in_NW(lon, lat):
+    """
+    If the latitude is greater than or equal to 46.32 and the longitude is less than or equal to 1.96,
+    then the function returns True. Otherwise, it returns False
+    
+    :param lon: longitude
+    :param lat: latitude
+    :return: True or False
+    """
     return lat >= 46.32 and lon <= 1.96
 
 def is_in_SE(lon, lat):
+    """
+    > If the latitude is less than or equal to 46.17 and the longitude is greater than or equal to 2.12,
+    then return True. Otherwise, return False
+    
+    :param lon: longitude
+    :param lat: latitude
+    :return: A boolean value.
+    """
     return lat <= 46.17 and lon >= 2.12
 
 def have_data(address):
+    """
+    It checks if the address is in the database.
+    
+    :param address: The address of the device you want to check
+    """
 
     lon, lat, place_name, state_name = pgeocode.Nominatim("fr").query_postal_code(
         address

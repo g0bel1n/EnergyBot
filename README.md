@@ -60,20 +60,27 @@ We used to work with Rasa. Indeed Rasa is an open source implementation for Natu
 
 The deployment of RASA required three (3) terminals: one for a postgres database, one for the action, and a third for the API launching. This required the creation of three dockerfiles and the linking of these files, which might not be easy. Also, the Bot only recognised a well-defined lexical field and only returned Expressions defined.
 
-Since it was no different from a Question Answer system we hardcoded In the end the bot ourselves, using OOP. It basically handles the logic and computation part of our project.
+Since it was no different from a Question Answer system we hardcoded in the end the bot ourselves, using OOP. It basically handles the logic and computation part of our project.
+The class has private and public methods (in Python sense) as some methods should not be interacted with in other scripts. It also have a static method.
 
 
 ### Frontend
 
 We chose to use Streamlit for building our frontend for its simplicity and our experience with it. We also used a non-official package `streamlit-chat` to display the conversation of the user with the bot. 
 
-### Something
+In the frontend, we implemented a simple class for messages and a factory in order to generate unique id's as required by `streamlit-chat`. 
 
-EnergyBot 
-    |-- consumption_prediction
-    |-- EnergyBotApp  
+### Consumption Prediction
 
-run at level EnergyBot
+This part is a proxy for a veritable data analysis and forecasting study of energy consumption. We did not dwell to much on it as it was not the primary goal of this project. We synthetized data using an arbitrary formula for estimating a target. We added noise to make it more realistic.
+
+We simply implemented a RandomForest algorithm for prediction without fine-tuning or usual methods such as cross-validation and such. 
+
+The data generation is done concurrently as the main bottleneck was due to I/O latences when opening files. We also used caching to avoid to much overhead. It might be worth mentionning that we used wrappers to test input format of some function. 
+
+#### 
+
+
 
 ```
 docker build -t energybot1 . 
