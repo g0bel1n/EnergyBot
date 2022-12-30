@@ -7,11 +7,14 @@ def civility_isValid(civility: Text) -> bool:
     return civility in ["MR", "MME"]
 
 def email_isValid(email: Text) -> bool:
-    regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+    regex = re.compile(
+        r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
     return re.fullmatch(regex, email)
 
 def zipcode_isValid(zipcode: Text) -> bool:
-    list_zip_codes = pd.read_csv("https://www.insee.fr/fr/statistiques/fichier/5057840/commune2021-csv.zip")["COM"].unique()
+    list_zip_codes = pd.read_csv(
+        "https://www.insee.fr/fr/statistiques/fichier/5057840/commune2021-csv.zip"
+        )["COM"].unique()
     return str(zipcode) in list_zip_codes
 
 def birthyear_isValid(birthyear: Text) -> bool:

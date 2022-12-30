@@ -5,7 +5,16 @@ from rasa_sdk.forms import FormValidationAction
 from datetime import datetime
 
 from actions.database_connector import DataUpdate
-from actions.testing_slots import email_isValid, zipcode_isValid, civility_isValid, birthyear_isValid, ecoloscore_isValid, workdayoccupation_isValid, consprofile_isValid, maxpower_isValid
+from actions.testing_slots import (
+    email_isValid,
+    zipcode_isValid,
+    civility_isValid,
+    birthyear_isValid,
+    ecoloscore_isValid,
+    workdayoccupation_isValid,
+    consprofile_isValid,
+    maxpower_isValid
+)
 
 
 class PersonalInfosFormValidation(FormValidationAction):
@@ -215,9 +224,3 @@ class ActionSubmitForm(Action):
 
         dispatcher.utter_message(template="utter_submit")
         return []
-
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions

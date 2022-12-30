@@ -1,13 +1,11 @@
-# EnergyBot
-Ensae Cloud Computing Project
-
-[Repartition](https://genes-my.sharepoint.com/:w:/g/personal/ikonkobo_ensae_fr/EZ-Ad_AlelRFl0VXvzRgn3QBUNXoXNZUaScYzuJt3DvHng?e=uWN3aD)
-
-## Objectifs pour 
-
-- Météo 
-- Première version Chatbot
+<h1 align="center">
+  EnergyBot
+  <br/>
+</h1>
 
 
-## Liens utiles
-[Ensae Reproductibilité](https://ensae-reproductibilite.netlify.app/application/)
+<p align="center">EnergyBot is a Python Project for Ensae's Cloud Computing course.  It is an interactive platfrom that estimate your energy consumption and provide it with some additional data such as wind estimations, temperatures, suntime, etc ... <br/> </p>
+
+## The repo in details
+
+Abandoned repo due to concern on Rasa model deployment
