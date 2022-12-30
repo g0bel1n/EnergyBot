@@ -4,7 +4,7 @@
 </h1>
 
 
-<p align="center">EnergyBot is a Python Project for Ensae's Cloud Computing course.  I is  a interactive platfrom that estimate your energy consumption and provide it with some additional data such as wind estimations, temperatures, suntime, etc ... <br/> </p>
+<p align="center">EnergyBot is a Python Project for Ensae's Cloud Computing course.  It is an interactive platfrom that estimates your energy consumption and provides it with some additional data such as wind estimations, temperatures, suntime, etc ... <br/> </p>
 
 ---
 <p align="center">
