@@ -78,17 +78,20 @@ We simply implemented a RandomForest algorithm for prediction without fine-tunin
 
 The data generation is done concurrently as the main bottleneck was due to I/O latences when opening files. We also used caching to avoid to much overhead. It might be worth mentionning that we used wrappers to test input format of some function. 
 
-#### 
+## Image building
 
+If you want to build the EnergyBot image we recommend not using a Windows based-OS. There are two alternatives here :
 
-
-```
-docker build -t energybot1 . 
-```
-
-to download and process the data 
-
+- The RUN instruction commentted in the Dockerfile: if this is the case, download the data through this line in bash while locating in the ./EnergyBotApp and afterwards build the image
 ```
 chmod +x meteo/get_data.sh  data_setup.sh
 ./data_setup.sh -y 2018
+```
+
+- The RUN instruction uncommentted in the Dockerfile: in this situation build the image
+
+
+To build the image
+```
+docker build -t energybot1 . 
 ```
