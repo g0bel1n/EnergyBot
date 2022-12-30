@@ -56,14 +56,16 @@ Even if the base files are about 3 to 4 GB large, once processed, what we need i
 
 ### Talky
 
-We used to work with rasa .........
+We used to work with Rasa. Indeed Rasa is an open source implementation for Natural Language Understanding (NLU) and Dual Intent Models and Entity Transformers (DIET). It can interact with databases, APIs, conversational streams for interactive learning with neural network reinforcement. 
 
-In the end we hardcoded the bot ourselves, using OOP. It basically handles the logic and computation part of our project.
+The deployment of RASA required three (3) terminals: one for a postgres database, one for the action, and a third for the API launching. This required the creation of three dockerfiles and the linking of these files, which might not be easy. Also, the Bot only recognised a well-defined lexical field and only returned Expressions defined.
+
+Since it was no different from a Question Answer system we hardcoded In the end the bot ourselves, using OOP. It basically handles the logic and computation part of our project.
 
 
 ### Frontend
 
-We chose to use streamlit for building our frontend for its simplicity and our experience with it. We also used a non-official package `streamlit-chat` to display the conversation of the user with the bot. 
+We chose to use Streamlit for building our frontend for its simplicity and our experience with it. We also used a non-official package `streamlit-chat` to display the conversation of the user with the bot. 
 
 ### Something
 
