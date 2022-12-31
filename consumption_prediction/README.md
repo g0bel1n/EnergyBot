@@ -12,8 +12,8 @@ The model here is based on synthetic customers base data since we have not owned
 |-:|:--:|:--:|:-:|
 | email | Personal | Email address |  |
 | postcode | Personal | Zip code |  |
+| Cons_Profile | Contractual | Profile to which belongs the customer, obtained from  | RES1, RES11, RES2 |
 | max_power | Contractual | Subscribed power of the contract | 3, 6, 9, 12, 15, 18, 24, 30, 36 (kVA) |
-| cons_Profile | Contractual | Consumption profile to which belongs the customer, obtained from the contract | RES1, RES11, RES2 |
 | ecolo score | Behavioural | Auto-valuation as eco-responsible | INT between 1 and 5 |
 | workday | Behavioural | Average number of hours at home for working | INT |
 | nb_habitant | Energy Landscape | Number of habitants in the household | INT |
