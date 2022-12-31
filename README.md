@@ -47,11 +47,11 @@ We have 2 (and a half) continuous integration (CI) procedures that are launched 
 
 The meteo data folder contains the scripts to get meteorological data from various sites. 
 
-The data_setup.sh bash scripts check which files are missing, and download them as well as process them for the plateform. 
+The data_setup.sh bash script checks which files are missing, and download them as well as process them for the plateform. 
 There is two main data providers. Meteonet, which is open-sourced data from MeteoFrance. However, only data for the Northwest and sutheast of France are available. We request the file using a wget command.
 The second source is dates-pratiques, a website from which we scrap the sunrise and sunset hours for this year, using BeautifulSoup4.
 
-The advantage of our method is that, we don't need to get data during runtime, so we only have to launch this scripts once.
+The advantage of our method is that, we don't need to get data during runtime, so we only have to launch this script once.
 Even if the base files are about 3 to 4 GB large, once processed, what we need is aroung 30-40 MB. Therefore we decided to add it to in the Docker Image directly instead of running the bash script. It is faster and does not require to waste data downloading the same files at each build. It is a reasonable trade-off as the docker image is about 300MB.
 
 ### Talky
