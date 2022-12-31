@@ -41,7 +41,7 @@ docker run -p 8501:8501  -d g0bel1n/energybot:latest
 We have 2 (and a half) continuous integration (CI) procedures that are launched at every push to the main branch
 -  Testing. Pytest collects the test from the tests folder and execute them
    -  if Testing goes through, a Docker Image is built and pushed onto the docker hub
-- Mirroring. The commits are shared with course gitlab repository for the course
+- Mirroring. The commits are shared with gitlab repository for the course
 
 ### Meteo Data
 
