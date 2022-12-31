@@ -4,8 +4,6 @@ import datetime
 import requests
 from bs4 import BeautifulSoup
 
-#Scrap sunset and sunrise hours from a website and saves it in a csv file
-
 url = "https://www.date-pratique.fr/heure-lever-coucher-soleil.html"
 r = requests.get(url)
 soup = BeautifulSoup(r.content, "html.parser")

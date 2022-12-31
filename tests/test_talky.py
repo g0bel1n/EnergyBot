@@ -18,5 +18,10 @@ def test_talky_greetings():
     assert talky.greetings() == [talky.script["greetings"]["question"]]
 
 
+def test_talky_greetings_check():
+    talky = TalkyChatbot()
+    assert talky.greetings_check("Hello") is True
+
+
 
 

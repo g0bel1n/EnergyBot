@@ -1,10 +1,10 @@
-from pickle import load, dump
-from pandas import read_csv
+import pickle
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 
 
-df = read_csv("../data/synthetic/data.csv", index_col=0)
+df = pd.read_csv("../data/synthetic/data.csv", index_col=0)
 
 D_train, D_test = train_test_split(df, test_size=0.2, random_state=42)
 
@@ -27,8 +27,8 @@ importances = pd.DataFrame(
 
 rf.score(X_test, y_test)
 
-dump(rf, open("model.pkl", "wb"))
+pickle.dump(rf, open("model.pkl", "wb"))
 
-rf1 = load(open("model.pkl", "rb"))
+rf1 = pickle.load(open("model.pkl", "rb"))
 
 rf1.score(X_test, y_test)

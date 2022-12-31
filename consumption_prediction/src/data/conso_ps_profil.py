@@ -2,9 +2,6 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 
-# The moduie is designed to give the annual toal consumption and the average daily 
-# consumption of an average household having a certain subscribed power and belonging
-# to a certain profile
 
 def data_theta() -> pd.DataFrame:
     df_theta = pd.read_excel("https://www.enedis.fr/media/2715/download")

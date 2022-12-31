@@ -1,12 +1,13 @@
 # from Talky import TalkyChatbot
 import streamlit as st
+
 st.set_page_config(page_title="Energy Bot", page_icon=":robot:")
 
 import sys
 import os
 
-#To solve PYTHONPATH issues 
 path2add = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+# print(path2add)
 if path2add not in sys.path :sys.path.append(path2add)
 
 from talky import TalkyChatbot
@@ -28,8 +29,6 @@ st.session_state["bot"] = (
 )
 
 
-# It takes a list of values, a list of ids, and a boolean value, and returns a list of chatMessage
-# objects
 class chatMessage:
     def __init__(self, value, id, is_user) -> None:
         self.value = value
@@ -41,7 +40,6 @@ class chatMessage:
         return list(map(lambda el: cls(*el, is_user), zip(lst, id_list)))
 
 
-# It's a factory that creates chatMessage objects
 class chatMessageFactory:
     def __init__(self) -> None:
         self.id = 0
@@ -54,14 +52,6 @@ class chatMessageFactory:
 
         self.id += 1
         return chatMessage(value, self.id, is_user)
-
-def query(payload):
-    return st.session_state["bot"].process_answer(payload)
-
-def clear_text():
-    st.session_state["last_input"] = st.session_state["input"]
-    st.session_state["input"] = ""
-
 
 
 
@@ -86,8 +76,15 @@ def main(rand_index):
         greetings = st.session_state["bot"].greetings()[0]
         st.session_state["chat"] = [st.session_state.chatFactory(greetings, False)]
 
+    def query(payload):
+        response = st.session_state["bot"].process_answer(payload)
+        return response
+
+    def clear_text():
+        st.session_state["last_input"] = st.session_state["input"]
+        st.session_state["input"] = ""
+
     st.text_input(
-# The text input box where the user can type in their input.
         "You: ",
         "",
         help="Use numeric for numbers"
@@ -97,7 +94,6 @@ def main(rand_index):
         on_change=clear_text,
     )
 
-# The part of the code that is responsible for the predicting the user's consumption.
     if st.session_state.bot.is_finished and "prediction" not in st.session_state:
         st.session_state["prediction"] = st.session_state.bot.get_prediction()
         st.session_state.chat.append(
@@ -108,7 +104,7 @@ def main(rand_index):
             st.session_state.bot.get_recommendation(), False
         )
 
-# The part of the code that is responsible for the chatbot's response.
+    ### Send the query to the API
     if st.session_state["last_input"]:
 
         output = query(st.session_state["last_input"])
@@ -120,7 +116,6 @@ def main(rand_index):
     
     avatar_dict = {True: list_avatars[rand_index], False: "bottts/red"}
 
-# Responsible for plotting the chatbot's response.
     if st.session_state.chat:
         for msg in st.session_state.chat[::-1]:
             message(
