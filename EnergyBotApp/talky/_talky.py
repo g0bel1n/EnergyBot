@@ -47,9 +47,6 @@ class TalkyChatbot:
 
         self.data = {}
 
-    def greetings_check(self, input_text: Text) -> bool:
-        return True
-
     def greetings(self) -> Text:
         return [self.script["greetings"]["question"]]
 
@@ -62,8 +59,10 @@ class TalkyChatbot:
         return nxt_step
 
     def _save_data(self):
-        print(self.data)
-        print(self.steps_to_ask)
+        """
+        It checks that the number of questions answered is equal to the number of questions in the survey,
+        and if so, it saves the data to a file
+        """
         assert (
             len(self.data.keys()) == self.n_questions
         ), "Not all questions were answered"
@@ -76,6 +75,14 @@ class TalkyChatbot:
             f"{'device' if self.current_step in __devices__ else self.current_step}_check",
         )(*args)
 
+    """
+    It checks if the input text is valid for the current step
+    
+    :param input_text: The user's input
+    :type input_text: Text
+    :return: True or False
+    """
+
     def _is_valid(self, input_text: Text) -> bool:
         if self.current_step == "greetings":
             return True
@@ -86,6 +93,14 @@ class TalkyChatbot:
         return False
 
     def process_answer(self, input_text: Text):
+        """
+        It takes the user's input, checks if it's valid, and returns a list of strings to be sent to the
+        user
+        
+        :param input_text: The user's input text
+        :type input_text: Text
+        :return: A list of strings.
+        """
         if a := self._is_valid(input_text):
             answer = [self.script[self.current_step]["ok"]]
             self.current_step = self._get_next_step()
@@ -107,6 +122,9 @@ class TalkyChatbot:
         return pickle.load(open("model/rf.pkl", "rb"))
 
     def get_prediction(self):
+        """
+        It loads the model, creates a dataframe with the data, and then predicts the consumption.
+        """
         rf = self._load_model()
         x = np.array(
             [self.data["ecoloscore"], self.data["workday"]]
@@ -125,6 +143,11 @@ class TalkyChatbot:
         return f"Your energy consumption is estimated to be {pred[0]:.2f} kWh per day"
 
     def get_recommendation(self):
+        """
+        It returns a list of strings, each string being a recommendation for the user. If the user has no
+        recommendations, it returns a list with one element, the string "You are doing great!"
+        :return: A list of strings.
+        """
         recommandation = []
         if float(self.data["fridge"]) > 5:
             recommandation.append("You should buy a fridge with a better energy label")
